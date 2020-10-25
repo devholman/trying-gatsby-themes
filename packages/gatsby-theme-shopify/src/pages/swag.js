@@ -1,5 +1,7 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui";
+import { useContext } from "react";
+import { MyThemeContext, jsx } from "../context";
+import { Global } from "@emotion/core";
 import { graphql } from "gatsby";
 import Header from "../components/header";
 import Img from "gatsby-image";
@@ -9,8 +11,8 @@ import * as H from "../components/headings";
 import * as Text from "../components/text";
 
 const client = Client.buildClient({
-  domain: "corgico-dev.myshopify.com",
-  storefrontAccessToken: process.env.GATSBY_SHOPIFY_ACCESS_TOKEN
+  domain: process.env.GATSBY_SHOPIFY_DOMAIN,
+  storefrontAccessToken: process.env.GATSBY_SHOPIFY_ACCESS_TOKEN,
 });
 
 async function buyCorgis(shopifyId) {
@@ -18,16 +20,18 @@ async function buyCorgis(shopifyId) {
   await client.checkout.addLineItems(checkout.id, [
     {
       variantId: shopifyId,
-      quantity: 1
-    }
+      quantity: 1,
+    },
   ]);
   // console.log(checkout.webUrl)
   navigate(checkout.webUrl);
 }
 
 export default ({ data, ...props }) => {
+  const { theme } = useContext(MyThemeContext);
   return (
     <div>
+      <Global styles={{ body: { backgroundColor: theme.colors.background } }} />
       <Header />
       <ul sx={{ listStyleType: "none", margin: 0, padding: 0 }}>
         {data.allShopifyProduct.nodes.map(
@@ -40,7 +44,7 @@ export default ({ data, ...props }) => {
                   display: "flex",
                   listStyleType: "none",
                   margin: 0,
-                  padding: 0
+                  padding: 0,
                 }}
               >
                 {variants.map((variant, i) => (
@@ -50,7 +54,7 @@ export default ({ data, ...props }) => {
                     <button onClick={() => buyCorgis(variant.shopifyId)}>
                       Buy Now!
                     </button>
-                    <div style={{  width: (variant.price/2.00) * 40  }}>
+                    <div style={{ width: (variant.price / 2.0) * 40 }}>
                       <Img
                         fluid={variant.image.localFile.childImageSharp.fluid}
                       />

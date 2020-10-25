@@ -1,0 +1,21 @@
+{
+  "name": "gatsby-theme-realty-listings",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "theme-ui": "^0.2.44",
+    "@theme-ui/presets": "^0.2.44",
+    "isolated-theme-ui": "1.0.1",
+    "gatsby-image": "^2.2.29",
+    "gatsby-transformer-sharp": "^2.2.23",
+    "gatsby-plugin-sharp": "^2.2.32",
+    "netlify-cms-app": "^2.11.13",
+    "gatsby-plugin-netlify-cms": "^4.1.38"
+  },
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "clean": "gatsby clean"
+  }
+}

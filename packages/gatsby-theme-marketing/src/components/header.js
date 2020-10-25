@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { Link } from "gatsby";
-import { jsx } from "theme-ui";
+import { jsx } from "../context";
 
-const NavItem = props => (
+const NavItem = (props) => (
   <li>
     <Link
       {...props}
@@ -10,13 +10,13 @@ const NavItem = props => (
         color: "primary",
         fontFamily: "body",
         "&:hover": {
-          color: "secondary"
-        }
+          color: "secondary",
+        },
       }}
     />
   </li>
 );
-export default props => (
+export default (props) => (
   <header>
     <nav>
       <ul
@@ -25,8 +25,8 @@ export default props => (
           margin: 0,
           "& li": {
             marginLeft: "1rem",
-            listStyleType: "none"
-          }
+            listStyleType: "none",
+          },
         }}
       >
         <NavItem to="/">Home</NavItem>
@@ -35,14 +35,15 @@ export default props => (
         <NavItem to="/blog">Blog</NavItem>
         <NavItem to="/dev-blog">DevBlog</NavItem>
         <NavItem to="/swag">SWAG</NavItem>
+        <NavItem to="/listings">Listings</NavItem>
       </ul>
       <ul
         sx={{
           display: "flex",
           "& li": {
             marginLeft: "1rem",
-            listStyleType: "none"
-          }
+            listStyleType: "none",
+          },
         }}
       >
         <NavItem to="/app">Log in</NavItem>
