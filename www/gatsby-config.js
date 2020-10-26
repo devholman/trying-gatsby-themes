@@ -9,8 +9,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-theme-realty-listings`,
     `gatsby-theme-marketing`,
-    `gatsby-theme-shopify`,
-
+    // `gatsby-theme-shopify`,
     {
       resolve: "gatsby-source-wordpress",
       options: {

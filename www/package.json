@@ -21,7 +21,6 @@
     "react-dom": "^16.10.2",
     "theme-ui": "^0.2.44",
     "gatsby-theme-marketing": "^1.0.0",
-    "gatsby-theme-shopify": "^1.0.0",
     "gatsby-theme-realty-listings": "^1.0.0"
   },
   "scripts": {
